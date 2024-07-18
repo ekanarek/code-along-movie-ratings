@@ -13,6 +13,8 @@ import IndexPage from './pages/IndexPage.jsx';
 import AllMoviesPage from './pages/AllMoviesPage.jsx';
 import axios from 'axios';
 import MovieDetailPage from './pages/MovieDetailPage.jsx';
+import LoginPage from './pages/LoginPage.jsx';
+import YourRatingsPage from './pages/YourRatingsPage.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,7 +30,7 @@ const router = createBrowserRouter(
         }} 
       />
 
-      < Route 
+      <Route 
         path="movies/:movieId" 
         element={<MovieDetailPage />} 
         loader={async ({ params }) => {
@@ -36,6 +38,10 @@ const router = createBrowserRouter(
           return { movie: res.data };
         }}
       />
+
+      <Route path="login" element={<LoginPage />} />
+
+      <Route path="me" element={<YourRatingsPage />} />
     </Route>,
   ),
 );
