@@ -42,6 +42,15 @@ const router = createBrowserRouter(
       <Route path="login" element={<LoginPage />} />
 
       <Route path="me" element={<YourRatingsPage />} />
+
+      <Route 
+        path="me" 
+        element={<YourRatingsPage />} 
+        loader={async () => {
+          const res = await axios.get('/api/ratings');
+          return { ratings: res.data };
+        }}
+      />
     </Route>,
   ),
 );
